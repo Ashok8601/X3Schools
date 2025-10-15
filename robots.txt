@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://x3schools.onrender.com/sitemap.xml
+
+# Block admin or private paths (if exist)
+Disallow: /admin/
+Disallow: /login/
+Disallow: /signup/
+Disallow: /dashboard/
