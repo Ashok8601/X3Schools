@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x3School - होम</title>
+    <style>
+        /* सामान्य रीसेट */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .topic-section {
+            /* इमेज जैसा हल्का हरा बैकग्राउंड कलर (आप चाहें तो body से हटाकर यहाँ रख सकते हैं) */
+            /* background-color: #D9EEE1; */ 
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* उचित पैडिंग */
+            padding: 80px 20px;
+            /* डिफ़ॉल्ट टेक्स्ट कलर (काला) */
+            color: #282a35; 
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 1000px; /* एक अधिकतम चौड़ाई सेट कर सकते हैं */
+        }
+
+        /* मुख्य शीर्षक (HTML) */
+        .topic-section h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* उप-शीर्षक (The language for building web pages) */
+        .topic-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        /* बटनों का समूह कंटेनर */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* बटनों के बीच का गैप */
+            width: 100%;
+            max-width: 300px; /* बटनों की अधिकतम चौड़ाई */
+        }
+
+        /* सभी बटनों के सामान्य स्टाइल */
+        .button-group a {
+            display: block;
+            padding: 15px 25px;
+            border-radius: 25px; /* गोल कोने */
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        /* 1. हरा बटन (Learn HTML) */
+        .button-group a.green-btn { 
+            background-color: #04AA6D; 
+            color: white; 
+        }
+
+        /* 2. पीला बटन (Video Tutorial) */
+        .button-group a.yellow-btn { 
+            background-color: #FFF4A3; 
+            color: #282a35; /* डार्क टेक्स्ट */
+        }
+
+        /* 3. गहरा/काला बटन (HTML Reference) */
+        .button-group a.dark-btn { 
+            background-color: #282a35; 
+            color: white; 
+        }
+
+        /* 4. गुलाबी बटन (Get Certified) */
+        .button-group a.pink-btn { 
+            background-color: #FFC0C7; 
+            color: #282a35; /* डार्क टेक्स्ट */
+        }
+
+        /* हॉवर इफेक्ट्स (वैकल्पिक) */
+        .button-group a.green-btn:hover { background-color: #059862; }
+        .button-group a.yellow-btn:hover { background-color: #FFE670; }
+        .button-group a.dark-btn:hover { background-color: #1a1c22; }
+        .button-group a.pink-btn:hover { background-color: #FFB0B8; }
+          .hero-section {
+            background-color: #282a35; /* इमेज जैसा गहरा बैकग्राउंड */
+            color: white; /* सफेद टेक्स्ट */
+            text-align: center; /* टेक्स्ट को सेंटर में */
+            padding: 80px 20px; /* ऊपर/नीचे और साइड से पैडिंग */
+            display: flex;
+            flex-direction: column; /* एलिमेंट्स को एक के नीचे एक रखें */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* कम से कम पूरी व्यूपोर्ट ऊंचाई */
+            width: 100%; /* पूरी चौड़ाई */
+            box-sizing: border-box; /* पैडिंग को चौड़ाई में शामिल करें */
+        }
+
+        .hero-section h1 {
+            font-size: 60px; /* बड़ा शीर्षक */
+            margin-bottom: 20px; /* नीचे मार्जिन */
+            line-height: 1.2; /* लाइन स्पेसिंग */
+            font-weight: bold; /* बोल्ड फॉन्ट */
+        }
+
+        .hero-section p {
+            font-size: 20px; /* उप-शीर्षक का फॉन्ट साइज */
+            margin-bottom: 40px; /* नीचे मार्जिन */
+            max-width: 600px; /* अधिकतम चौड़ाई ताकि टेक्स्ट बहुत लंबा न फैले */
+            line-height: 1.5;
+        }
+
+        /* सर्च बार कंटेनर */
+        .hero-search {
+            display: flex; /* इनपुट और बटन को एक लाइन में */
+            align-items: center; /* वर्टिकली अलाइन करें */
+            background-color: white; /* सफेद बैकग्राउंड */
+            border-radius: 25px; /* गोल कोने */
+            overflow: hidden; /* गोल कोनों के अंदर कंटेंट को क्लिप करें */
+            width: 100%;
+            max-width: 500px; /* अधिकतम चौड़ाई */
+            margin-bottom: 30px; /* नीचे मार्जिन */
+        }
+
+        .hero-search input {
+            flex-grow: 1; /* इनपुट को उपलब्ध जगह भरने दें */
+            border: none; /* कोई बॉर्डर नहीं */
+            padding: 12px 20px; /* इनपुट के अंदर पैडिंग */
+            font-size: 16px;
+            outline: none; /* फोकस होने पर आउटलाइन हटाएँ */
+        }
+
+        .hero-search button {
+            background-color: #04AA6D; /* हरा बैकग्राउंड */
+            border: none; /* कोई बॉर्डर नहीं */
+            padding: 12px 20px; /* बटन के अंदर पैडिंग */
+            color: white; /* सफेद टेक्स्ट */
+            font-size: 18px;
+            cursor: pointer; /* कर्सर को पॉइंटर में बदलें */
+            outline: none; /* फोकस होने पर आउटलाइन हटाएँ */
+        }
+
+        /* नीचे का लिंक */
+        .hero-section a {
+            color: white; /* सफेद टेक्स्ट */
+            text-decoration: underline; /* अंडरलाइन */
+            font-size: 18px;
+            font-weight: bold;
+        } 
+
+        /* टॉप हेडर स्टाइल */
+        .top-header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; /* टॉप हेडर फिक्सड */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* सुनिश्चित करता है कि यह ऊपर रहे */
+            height: 40px; /* फिक्स्ड ऊंचाई */
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* सर्च कंटेनर (निश्चित रूप से सबसे ऊपर) */
+        .search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px; /* टॉप हेडर के बराबर या उससे अधिक */
+            background-color: #333; /* टॉप हेडर का रंग */
+            display: none; /* डिफ़ॉल्ट रूप से छुपा हुआ */
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1001; /* टॉप हेडर से ऊपर */
+        }
+
+        .search-input-container {
+            display: flex;
+            width: 100%;
+            align-items: center;
+        }
+
+        .search-overlay input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .search-overlay .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* टॉप हेडर के अंदर सर्च और बटन्स */
+        .header-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon, .auth-buttons button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 8px 10px;
+            margin-left: 10px;
+        }
+
+        .search-icon {
+            font-size: 20px; /* आइकन के लिए बड़ा साइज़ */
+            /* यहाँ आप एक वास्तविक सर्च आइकन (SVG या फॉन्ट आइकन) का इस्तेमाल करेंगे। फिलहाल '🔍' का उपयोग कर रहे हैं */
+        }
+
+        /* सब-हेडर/मेन्यू बार स्टाइल */
+        .sub-header {
+            background-color: #e7e7e7;
+            padding: 10px 0;
+            margin-top: 60px; /* टॉप हेडर की ऊंचाई के बराबर मार्जिन */
+            position: fixed; /* फिक्सड */
+            top: 0; /* अब टॉप 0 से नहीं, बल्कि टॉप हेडर के नीचे से शुरू होगा */
+            left: 0;
+            right: 0;
+            z-index: 999; /* टॉप हेडर से नीचे लेकिन बॉडी से ऊपर */
+            white-space: nowrap; /* मेन्यू आइटम को एक ही लाइन में रखता है */
+            overflow-x: auto; /* हॉरिजॉन्टल स्क्रॉलिंग सक्षम करता है */
+            -webkit-overflow-scrolling: touch; /* iOS में बेहतर स्क्रॉलिंग */
+        }
+
+        .sub-header::-webkit-scrollbar {
+            height: 5px; /* स्क्रॉल बार की ऊंचाई */
+        }
+
+        .sub-header::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 10px;
+        }
+
+        .menu-item {
+            display: inline-block;
+            padding: 5px 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .menu-item:hover {
+            background-color: #ddd;
+            border-radius: 4px;
+        }
+
+        /* मेन बॉडी कंटेंट (मेन्यू के नीचे शुरू होता है) */
+        .main-content {
+            padding-top: 105px; /* टॉप हेडर (60px) + सब-हेडर (45px लगभग) = 105px */
+            /* यह हिस्सा खाली रहेगा जैसा कि उपयोगकर्ता ने अनुरोध किया है */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-input-container">
+            <input type="text" placeholder="खोजें..." autofocus>
+            <button class="close-btn" onclick="toggleSearch()">×</button>
+        </div>
+    </div>
+
+    <header class="top-header">
+        <a href="#" class="brand-name">x3School</a>
+
+        <div class="header-controls">
+            <button class="search-icon" onclick="toggleSearch()">🔍</button>
+
+            <div class="auth-buttons">
+                <button>साइनअप</button>
+                <button>लॉगिन</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="sub-header">
+        <a href="#" class="menu-item">विज्ञान</a>
+        <a href="#" class="menu-item">गणित</a>
+        <a href="#" class="menu-item">इतिहास</a>
+        <a href="#" class="menu-item">भूगोल</a>
+        <a href="#" class="menu-item">अर्थशास्त्र</a>
+        <a href="#" class="menu-item">कंप्यूटर</a>
+        <a href="#" class="menu-item">कला और शिल्प</a>
+        <a href="#" class="menu-item">संगीत</a>
+        <a href="#" class="menu-item">दर्शन</a>
+        <a href="#" class="menu-item">साहित्य</a>
+        <a href="#" class="menu-item">कोडिंग</a>
+        <a href="#" class="menu-item">डिजाइन</a>
+        <a href="#" class="menu-item">स्वास्थ्य</a>
+        <a href="#" class="menu-item">व्यापार</a>
+        <a href="#" class="menu-item">भाषाएं</a>
+        <a href="#" class="menu-item">ज्योतिष</a>
+        <a href="#" class="menu-item">पाक कला</a>
+        <a href="#" class="menu-item">यात्रा</a>
+        <a href="#" class="menu-item">खेल</a>
+        <a href="#" class="menu-item">फोटोग्राफी</a>
+        <a href="#" class="menu-item">प्रबंधन</a>
+        <a href="#" class="menu-item">इंजीनियरिंग</a>
+        <a href="#" class="menu-item">पर्यावरण</a>
+        <a href="#" class="menu-item">कृषि</a>
+        <a href="#" class="menu-item">कानून</a>
+        <a href="#" class="menu-item">मनोविज्ञान</a>
+        <a href="#" class="menu-item">फिल्में</a>
+        <a href="#" class="menu-item">वित्त</a>
+        <a href="#" class="menu-item">फैशन</a>
+        <a href="#" class="menu-item">ऑटोमोबाइल</a>
+        <a href="#" class="menu-item">एनिमेशन</a>
+        <a href="#" class="menu-item">रोबोटिक्स</a>
+        <a href="#" class="menu-item">नेटवर्किंग</a>
+        <a href="#" class="menu-item">डाटा साइंस</a>
+        <a href="#" class="menu-item">साइबर सुरक्षा</a>
+        <a href="#" class="menu-item">जैव प्रौद्योगिकी</a>
+        <a href="#" class="menu-item">राजनीति</a>
+        <a href="#" class="menu-item">इवेंट मैनेजमेंट</a>
+        <a href="#" class="menu-item">योग</a>
+        <a href="#" class="menu-item">ध्यान</a>
+        <a href="#" class="menu-item">विपणन</a>
+        <a href="#" class="menu-item">ई-कॉमर्स</a>
+        <a href="#" class="menu-item">ब्लॉकचेन</a>
+        <a href="#" class="menu-item">क्लाउड कंप्यूटिंग</a>
+        <a href="#" class="menu-item">मशीन लर्निंग</a>
+        <a href="#" class="menu-item">आर्किटेक्चर</a>
+        <a href="#" class="menu-item">पेंटिंग</a>
+        <a href="#" class="menu-item">लेखन</a>
+        <a href="#" class="menu-item">भाषण कौशल</a>
+        <a href="#" class="menu-item">अनुसंधान</a>
+    </nav>
+
+    <main class="main-content">
+        <p style="text-align: center; margin-top: 50px; color: #666;">वेबसाइट की मुख्य सामग्री यहाँ आएगी।</p>
+            <section class="hero-section">
+        <h1>Learn to <br> Code</h1>
+        <p>With the world's largest web developer site.</p>
+        <div class="hero-search">
+            <input type="text" placeholder="Search our tutorials, e.g. HTML">
+            <button>🔍</button>
+        </div>
+        <a href="#">Not Sure Where To Begin?</a>
+    </section>
+    <section class="topic-section">
+        <h1>HTML</h1>
+        <p>The language for building web pages</p>
+        <div class="button-group">
+            <a href="#" class="green-btn">Learn HTML</a>
+            <a href="#" class="yellow-btn">Video Tutorial</a>
+            <a href="#" class="dark-btn">HTML Reference</a>
+            <a href="#" class="pink-btn">Get Certified</a>
+        </div>
+    </section>
+    <section class="topic-section">
+        <h1>HTML</h1>
+        <p>The language for building web pages</p>
+        <div class="button-group">
+            <a href="#" class="green-btn">Learn HTML</a>
+            <a href="#" class="yellow-btn">Video Tutorial</a>
+            <a href="#" class="dark-btn">HTML Reference</a>
+            <a href="#" class="pink-btn">Get Certified</a>
+        </div>
+    </section>
+    </main>
+
+    <script>
+        // सर्च बार को दिखाने/छुपाने का फंक्शन
+        function toggleSearch() {
+            const searchOverlay = document.getElementById('searchOverlay');
+            // 'none' से 'flex' या 'flex' से 'none' पर स्विच करें
+            if (searchOverlay.style.display === 'flex') {
+                searchOverlay.style.display = 'none';
+            } else {
+                searchOverlay.style.display = 'flex';
+                // सर्च बार खुलने पर इनपुट फील्ड पर फोकस करें
+                searchOverlay.querySelector('input[type="text"]').focus();
+            }
+        }
+    </script>
+</body>
+</html>
